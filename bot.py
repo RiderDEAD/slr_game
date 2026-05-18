@@ -1,7 +1,7 @@
 import os
+import asyncio  # Добавляем этот импорт в самый верх файла!
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from telegram.ext import Application, CommandHandler, ContextTypes
-
 # ВСТАВЬ СЮДА ТОКЕН СВОЕГО БОТА ИЗ @BotFather
 TOKEN = "8738502248:AAHlAi-h59fWgjxthMdymhTRtTw0xoHfLPM"
 
@@ -27,8 +27,8 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         reply_markup=reply_markup
     )
 
-def main():
-    # Настройка порта для Render (чтобы он видел, что приложение живо)
+async def main():
+    # Настройка порта для Render
     port = int(os.environ.get("PORT", 8000))
     
     app = Application.builder().token(TOKEN).build()
@@ -36,9 +36,15 @@ def main():
     
     print(f"Бот успешно поднят на порту {port} и готов крутиться 24/7!")
     
-    # Запуск бота в режиме вебхука или полинга. 
-    # Для бесплатного деплоя на Render полинг отлично подходит:
-    app.run_polling()
+    # Инициализируем приложение перед запуском
+    await app.initialize()
+    await app.updater.start_polling()
+    await app.start()
+    
+    # Держим бота запущенным, пока сервер работает
+    while True:
+        await asyncio.sleep(3600)
 
 if __name__ == "__main__":
-    main()
+    # Вот этот метод создаст нужный Event Loop в Python 3.14+ автоматически!
+    asyncio.run(main())
