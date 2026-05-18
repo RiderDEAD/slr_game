@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Slay the Spire II</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Nunito:wght@400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #0a0b0f;
@@ -31,7 +31,7 @@
   --card-curse: linear-gradient(145deg, #1a1410, #2a1f0a);
 }
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg); color: var(--text); font-family: 'Crimson Pro', Georgia, serif; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg); color: var(--text); font-family: 'Nunito', 'Segoe UI', sans-serif; }
 
 /* ========== SCREENS ========== */
 .screen { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.4s ease, transform 0.4s ease; }
@@ -50,7 +50,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 /* ========== MENU ========== */
 #menu { background: radial-gradient(ellipse at 50% 30%, #1a1428 0%, var(--bg) 70%); z-index: 1; }
 .menu-title {
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: 'Cinzel', serif;
   font-size: clamp(1.6rem, 5vw, 2.8rem);
   font-weight: 900;
   letter-spacing: 2px;
@@ -64,13 +64,13 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   0%, 100% { text-shadow: 0 0 30px rgba(212,168,75,0.5), 0 0 60px rgba(212,168,75,0.2); }
   50% { text-shadow: 0 0 50px rgba(212,168,75,0.8), 0 0 80px rgba(212,168,75,0.4), 0 0 120px rgba(212,168,75,0.1); }
 }
-.menu-subtitle { font-size: 0.9rem; color: var(--muted); letter-spacing: 4px; text-transform: uppercase; margin-top: 6px; font-family: 'Space Mono', monospace; }
+.menu-subtitle { font-size: 0.9rem; color: var(--muted); letter-spacing: 4px; text-transform: uppercase; margin-top: 6px; font-family: 'JetBrains Mono', monospace; }
 .menu-buttons { display: flex; flex-direction: column; gap: 12px; width: min(300px, 85vw); margin-top: 40px; }
 .btn-menu {
   background: transparent;
   border: 1px solid rgba(212,168,75,0.3);
   color: var(--gold);
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: 'Cinzel', serif;
   font-size: 0.9rem;
   letter-spacing: 2px;
   padding: 14px 20px;
@@ -96,7 +96,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 
 /* ========== CHARACTER SELECT ========== */
 #charselect { background: radial-gradient(ellipse at 50% 40%, #1a1020 0%, var(--bg) 75%); z-index: 1; padding: 20px; }
-.cs-title { font-family: 'Cinzel Decorative', cursive; color: var(--gold); font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 24px; opacity: 0.8; }
+.cs-title { font-family: 'Cinzel', serif; color: var(--gold); font-size: 1.1rem; letter-spacing: 3px; margin-bottom: 24px; opacity: 0.8; }
 .chars-grid { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; max-width: 720px; }
 .char-card {
   background: var(--bg2);
@@ -121,7 +121,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 .char-card.mage.selected { border-color: var(--blue2); box-shadow: 0 8px 30px rgba(58,123,213,0.25); }
 .char-card:hover:not(.selected) { border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
 .char-emoji { font-size: 2.5rem; margin-bottom: 10px; display: block; }
-.char-name { font-family: 'Cinzel Decorative', cursive; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 6px; }
+.char-name { font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 1px; margin-bottom: 6px; }
 .char-name.warrior { color: var(--red2); }
 .char-name.rogue { color: var(--purple2); }
 .char-name.mage { color: var(--blue2); }
@@ -133,7 +133,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   background: var(--bg3);
   border: 1px solid var(--border);
   color: var(--text);
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: 'Cinzel', serif;
   font-size: 0.75rem;
   letter-spacing: 1px;
   padding: 12px 24px;
@@ -148,9 +148,9 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 
 /* ========== MAP ========== */
 #mapscreen { background: radial-gradient(ellipse at 50% 20%, #0d1520 0%, var(--bg) 70%); z-index: 1; padding: 16px; overflow-y: auto; justify-content: flex-start; }
-.map-header { font-family: 'Cinzel Decorative', cursive; color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 6px; width: 100%; max-width: 500px; }
+.map-header { font-family: 'Cinzel', serif; color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 6px; width: 100%; max-width: 500px; }
 .floor-info { display: flex; justify-content: space-between; align-items: center; width: 100%; max-width: 500px; margin-bottom: 16px; }
-.floor-badge { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--muted); }
+.floor-badge { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--muted); }
 .map-nodes { display: flex; flex-direction: column-reverse; gap: 10px; width: 100%; max-width: 500px; align-items: center; margin-bottom: 20px; }
 .map-row { display: flex; gap: 14px; justify-content: center; }
 .map-node {
@@ -169,24 +169,49 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 .map-node.available:hover { transform: scale(1.1); border-color: var(--gold); box-shadow: 0 4px 15px rgba(212,168,75,0.2); }
 .map-node.visited { opacity: 0.4; border-color: var(--border); cursor: default; }
 .map-node.locked { opacity: 0.25; cursor: default; }
-.node-label { font-size: 0.5rem; color: var(--muted); margin-top: 2px; font-family: 'Space Mono', monospace; letter-spacing: 0px; text-transform: uppercase; }
+.node-label { font-size: 0.5rem; color: var(--muted); margin-top: 2px; font-family: 'JetBrains Mono', monospace; letter-spacing: 0px; text-transform: uppercase; }
 @keyframes nodePulse {
   0%,100% { box-shadow: 0 0 0 0 rgba(212,168,75,0.2); }
   50% { box-shadow: 0 0 0 5px rgba(212,168,75,0); }
 }
 .map-relics { display: flex; flex-wrap: wrap; gap: 8px; width: 100%; max-width: 500px; }
 
+/* ========== TOP HP BANNER ========== */
+.top-hp-banner {
+  width: 100%; max-width: 700px; align-self: center;
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 7px 14px;
+  position: sticky; top: 0; z-index: 5;
+}
+.top-hp-side { display: flex; align-items: center; gap: 5px; flex-shrink: 0; }
+.top-hp-side.right { flex-direction: row-reverse; }
+.top-hp-avatar { font-size: 1.1rem; line-height: 1; }
+.top-hp-name { font-family: 'Cinzel', serif; font-size: 0.6rem; color: var(--gold); letter-spacing: 0.5px; max-width: 52px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.top-hp-num { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--text); font-weight: 700; min-width: 26px; text-align: center; }
+.top-hp-bars { flex: 1; display: flex; align-items: center; gap: 6px; }
+.top-hp-track { flex: 1; height: 10px; background: rgba(255,255,255,0.07); border-radius: 5px; overflow: hidden; }
+.player-track { }
+.enemy-track { }
+.top-hp-fill { height: 100%; border-radius: 5px; transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
+.player-fill { background: linear-gradient(90deg, #22c55e, #4ade80); }
+.enemy-fill { background: linear-gradient(90deg, #c94040, #e85555); transform-origin: right; }
+.enemy-track { direction: rtl; }
+.enemy-fill { direction: ltr; float: right; }
+.top-hp-vs { font-family: 'Cinzel', serif; font-size: 0.55rem; color: var(--muted); flex-shrink: 0; letter-spacing: 1px; }
+
 /* ========== BATTLE ========== */
-#battle { background: radial-gradient(ellipse at 50% 0%, #150d20 0%, var(--bg) 60%); z-index: 1; justify-content: flex-start; padding: 12px 14px 0; overflow: hidden; }
-.battle-top { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.floor-label { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); }
+#battle { background: radial-gradient(ellipse at 50% 0%, #150d20 0%, var(--bg) 60%); z-index: 1; justify-content: flex-start; padding: 0 14px 0; overflow: hidden; }
+.battle-top { width: 100%; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-top: 10px; }
+.floor-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); }
 .energy-orb {
   width: 44px; height: 44px;
   border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #4a90e2, #1a3a6e);
   border: 2px solid #5a9bf5;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: 'Cinzel', serif;
   font-size: 1rem;
   font-weight: 900;
   color: #fff;
@@ -213,14 +238,14 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 @keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-4px)} 75%{transform:translateX(4px)} }
 @keyframes pulse-green { 0%,100%{border-color:var(--border)} 50%{border-color:var(--green)} }
 .entity-avatar { font-size: 2rem; margin-bottom: 4px; display: block; }
-.entity-name { font-family: 'Cinzel Decorative', cursive; font-size: 0.65rem; color: var(--gold); letter-spacing: 1px; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.entity-name { font-family: 'Cinzel', serif; font-size: 0.72rem; color: var(--gold); letter-spacing: 0.5px; margin-bottom: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .hp-row { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
-.hp-label { font-size: 0.7rem; color: var(--muted); font-family: 'Space Mono', monospace; white-space: nowrap; }
+.hp-label { font-size: 0.7rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; white-space: nowrap; }
 .hp-bar-wrap { flex: 1; height: 8px; background: rgba(255,255,255,0.06); border-radius: 4px; overflow: hidden; }
 .hp-fill { height: 100%; background: linear-gradient(90deg, var(--red), var(--red2)); border-radius: 4px; transition: width 0.5s cubic-bezier(0.4,0,0.2,1); }
 .hp-fill.boss { background: linear-gradient(90deg, #7c2020, #c94040, #ff6b6b); }
 .buffs-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; min-height: 22px; }
-.buff { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 2px 6px; font-size: 0.62rem; color: var(--text); font-family: 'Space Mono', monospace; display: flex; align-items: center; gap: 3px; white-space: nowrap; }
+.buff { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; padding: 2px 6px; font-size: 0.62rem; color: var(--text); font-family: 'JetBrains Mono', monospace; display: flex; align-items: center; gap: 3px; white-space: nowrap; }
 .buff.block { background: rgba(58,123,213,0.15); border-color: rgba(90,155,245,0.3); color: var(--blue2); }
 .buff.str { background: rgba(201,64,64,0.15); border-color: rgba(232,85,85,0.3); color: var(--red2); }
 .buff.dex { background: rgba(138,92,246,0.15); border-color: rgba(167,139,250,0.3); color: var(--purple2); }
@@ -230,11 +255,11 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 .buff.ritual { background: rgba(212,168,75,0.15); border-color: rgba(212,168,75,0.3); color: var(--gold); }
 
 .intent-row { display: flex; align-items: center; gap: 5px; margin-top: 6px; }
-.intent-badge { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; font-size: 0.65rem; color: var(--muted); font-family: 'Space Mono', monospace; }
+.intent-badge { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 3px 8px; font-size: 0.65rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
 
 /* ========== HAND & CARDS ========== */
 .battle-bottom { width: 100%; display: flex; flex-direction: column; align-items: center; gap: 8px; position: absolute; bottom: 0; left: 0; right: 0; padding: 8px 10px 10px; background: linear-gradient(transparent, var(--bg) 30%); }
-.deck-stats { display: flex; gap: 14px; font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--muted); }
+.deck-stats { display: flex; gap: 14px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--muted); }
 .deck-stat span { color: var(--text); }
 .hand-area { display: flex; gap: 8px; justify-content: center; width: 100%; padding: 0 4px; overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; padding-bottom: 4px; }
 .hand-area::-webkit-scrollbar { display: none; }
@@ -279,7 +304,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-weight: 700; font-size: 0.75rem;
-  font-family: 'Space Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   z-index: 1;
 }
 .attack .card-cost-gem { background: radial-gradient(circle at 35% 35%, #e85555, #8b2020); border: 1px solid rgba(232,85,85,0.5); color: #fff; box-shadow: 0 0 8px rgba(201,64,64,0.4); }
@@ -287,7 +312,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 .power .card-cost-gem { background: radial-gradient(circle at 35% 35%, #a78bfa, #5b2ab5); border: 1px solid rgba(167,139,250,0.5); color: #fff; box-shadow: 0 0 8px rgba(138,92,246,0.4); }
 .curse .card-cost-gem { background: radial-gradient(circle at 35% 35%, #f97316, #7c3210); border: 1px solid rgba(249,115,22,0.4); color: #fff; }
 .card-icon { font-size: 1.3rem; margin: 16px auto 4px; display: block; text-align: center; }
-.card-name { font-family: 'Cinzel Decorative', cursive; font-size: 0.55rem; letter-spacing: 0.5px; text-align: center; line-height: 1.3; color: var(--text); flex: 1; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2px; }
+.card-name { font-family: 'Cinzel', serif; font-size: 0.6rem; font-weight: 600; letter-spacing: 0.2px; text-align: center; line-height: 1.3; color: var(--text); flex: 1; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 2px; }
 .card-type-bar { height: 3px; border-radius: 0 0 8px 8px; margin: 0 -8px -8px; }
 .attack .card-type-bar { background: linear-gradient(90deg, var(--red), var(--red2)); }
 .skill .card-type-bar { background: linear-gradient(90deg, var(--blue), var(--blue2)); }
@@ -298,7 +323,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   background: transparent;
   border: 1px solid rgba(212,168,75,0.3);
   color: var(--gold);
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: 'Cinzel', serif;
   font-size: 0.7rem;
   letter-spacing: 1px;
   padding: 9px 20px;
@@ -313,13 +338,13 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
 .btn-end-turn:disabled { opacity: 0.3; cursor: default; }
 
 /* ========== LOG ========== */
-.battle-log { width: 100%; max-width: 680px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; font-size: 0.75rem; color: var(--muted); text-align: center; font-family: 'Space Mono', monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.battle-log { width: 100%; max-width: 680px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 6px; padding: 6px 12px; font-size: 0.75rem; color: var(--muted); text-align: center; font-family: 'JetBrains Mono', monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .battle-log .highlight { color: var(--gold); }
 
 /* ========== FLOATING DAMAGE ========== */
 .dmg-float {
   position: fixed;
-  font-family: 'Cinzel Decorative', cursive;
+  font-family: 'Cinzel', serif;
   font-size: 1.4rem;
   font-weight: 900;
   pointer-events: none;
@@ -355,7 +380,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   overflow-y: auto;
 }
 .modal-overlay.visible .modal-box { transform: scale(1); }
-.modal-title { font-family: 'Cinzel Decorative', cursive; font-size: 1rem; color: var(--gold); letter-spacing: 2px; text-align: center; margin-bottom: 16px; }
+.modal-title { font-family: 'Cinzel', serif; font-size: 1rem; color: var(--gold); letter-spacing: 2px; text-align: center; margin-bottom: 16px; }
 .reward-cards { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
 .reward-card-wrap { cursor: pointer; transition: transform 0.2s ease; }
 .reward-card-wrap:hover { transform: translateY(-8px) scale(1.03); }
@@ -370,7 +395,7 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   padding: 3px 10px;
   font-size: 0.65rem;
   color: var(--gold);
-  font-family: 'Space Mono', monospace;
+  font-family: 'JetBrains Mono', monospace;
   cursor: help;
   position: relative;
   transition: all 0.2s;
@@ -413,14 +438,14 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   width: min(440px, 92vw);
   text-align: center;
 }
-.overlay-title { font-family: 'Cinzel Decorative', cursive; font-size: 1.3rem; color: var(--gold2); margin-bottom: 20px; }
+.overlay-title { font-family: 'Cinzel', serif; font-size: 1.3rem; color: var(--gold2); margin-bottom: 20px; }
 .overlay-title.red { color: var(--red2); }
 .authors-list { list-style: none; margin: 0 0 20px; }
 .authors-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--muted); }
 .authors-list li strong { color: var(--text); display: block; font-size: 1rem; }
 .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0; }
 .stat-box { background: var(--bg3); border-radius: 8px; padding: 12px; }
-.stat-val { font-family: 'Cinzel Decorative', cursive; font-size: 1.2rem; color: var(--gold); }
+.stat-val { font-family: 'Cinzel', serif; font-size: 1.2rem; color: var(--gold); }
 .stat-lbl { font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
 .btn-close { margin-top: 8px; }
 
@@ -442,23 +467,23 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
   font-family: 'Crimson Pro', serif;
 }
 .card-desc-tooltip.visible { opacity: 1; }
-.card-desc-tooltip .card-desc-name { font-family: 'Cinzel Decorative', cursive; font-size: 0.65rem; color: var(--gold); margin-bottom: 4px; }
+.card-desc-tooltip .card-desc-name { font-family: 'Cinzel', serif; font-size: 0.65rem; color: var(--gold); margin-bottom: 4px; }
 
 /* ========== SHOP ========== */
 .shop-items { display: flex; flex-direction: column; gap: 10px; margin: 10px 0; }
 .shop-item { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.2s; }
 .shop-item:hover { border-color: rgba(212,168,75,0.3); background: rgba(212,168,75,0.04); }
-.shop-item .item-name { font-family: 'Cinzel Decorative', cursive; font-size: 0.7rem; color: var(--gold); }
+.shop-item .item-name { font-family: 'Cinzel', serif; font-size: 0.7rem; color: var(--gold); }
 .shop-item .item-desc { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
-.shop-item .item-cost { font-family: 'Space Mono', monospace; font-size: 0.8rem; color: var(--gold2); white-space: nowrap; }
-.shop-gold { font-family: 'Space Mono', monospace; font-size: 0.85rem; color: var(--gold); text-align: center; margin-bottom: 10px; }
+.shop-item .item-cost { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--gold2); white-space: nowrap; }
+.shop-gold { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--gold); text-align: center; margin-bottom: 10px; }
 
 /* ========== CAMPFIRE ========== */
 .campfire-opts { display: flex; flex-direction: column; gap: 12px; margin: 10px 0; }
 .campfire-opt { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 14px; cursor: pointer; transition: all 0.2s; text-align: center; }
 .campfire-opt:hover:not(:disabled) { border-color: rgba(212,168,75,0.3); background: rgba(212,168,75,0.05); }
 .campfire-opt:disabled { opacity: 0.4; cursor: default; }
-.campfire-opt-name { font-family: 'Cinzel Decorative', cursive; font-size: 0.75rem; color: var(--gold); margin-bottom: 4px; }
+.campfire-opt-name { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold); margin-bottom: 4px; }
 .campfire-opt-desc { font-size: 0.75rem; color: var(--muted); }
 
 /* ========== SCROLLBAR ========== */
@@ -504,18 +529,40 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: var(--bg);
       <div class="floor-badge">💰 <span id="map-gold">99</span> монет</div>
     </div>
     <div class="map-nodes" id="map-nodes"></div>
-    <div style="font-family:'Cinzel Decorative',cursive;font-size:0.65rem;color:var(--muted);margin-bottom:10px;letter-spacing:1px;">РЕЛИКВИИ</div>
+    <div style="font-family:'Cinzel Decorative',cursive;font-size:0.72rem;color:var(--muted);margin-bottom:10px;letter-spacing:1px;">РЕЛИКВИИ</div>
     <div class="map-relics" id="map-relics"></div>
   </div>
 </div>
 
 <!-- BATTLE -->
 <div class="screen hidden" id="battle">
+  <!-- TOP HP BANNER -->
+  <div class="top-hp-banner" id="top-hp-banner">
+    <div class="top-hp-side">
+      <span class="top-hp-avatar" id="top-p-avatar">⚔️</span>
+      <span class="top-hp-name" id="top-p-name">HERO</span>
+      <span class="top-hp-num" id="top-p-num">80</span>
+    </div>
+    <div class="top-hp-bars">
+      <div class="top-hp-track player-track">
+        <div class="top-hp-fill player-fill" id="top-p-fill" style="width:100%"></div>
+      </div>
+      <div class="top-hp-vs">VS</div>
+      <div class="top-hp-track enemy-track">
+        <div class="top-hp-fill enemy-fill" id="top-e-fill" style="width:100%"></div>
+      </div>
+    </div>
+    <div class="top-hp-side right">
+      <span class="top-hp-num" id="top-e-num">50</span>
+      <span class="top-hp-name" id="top-e-name">ВРАГ</span>
+      <span class="top-hp-avatar" id="top-e-avatar">👹</span>
+    </div>
+  </div>
   <div class="battle-top">
     <div class="floor-label">Этаж <span id="b-floor">1</span> · <span id="b-enemy-label">Враг</span></div>
     <div style="display:flex;gap:8px;align-items:center;">
       <div class="energy-orb" id="energy-orb">3</div>
-      <div style="font-family:'Space Mono',monospace;font-size:0.65rem;color:var(--muted);">💰<span id="b-gold">0</span></div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--muted);">💰<span id="b-gold">0</span></div>
     </div>
   </div>
   <div class="relics-strip" id="b-relics"></div>
@@ -974,6 +1021,7 @@ function drawCards(n) {
     }
     if (G.drawPile.length === 0) break;
     G.hand.push(G.drawPile.pop());
+    setTimeout(()=>SFX.cardDeal(), i*60);
   }
 }
 
@@ -1048,6 +1096,7 @@ function playCard(cardName, cardIndex) {
 
   // Execute card effects
   if (def.type === "attack") {
+    SFX.attack();
     let times = def.times || 1;
     const baseDmg = computeAttackDamage(def, p);
     let totalDealt = 0;
@@ -1067,6 +1116,7 @@ function playCard(cardName, cardIndex) {
     // heal-on-attack relic
     if (hasRelic("meat_hook")) { p.hp = Math.min(p.maxHp, p.hp + 3); spawnFloat("+3", "heal", false); }
   } else if (def.type === "skill") {
+    SFX.block();
     if (def.block) { applyBlock(p, def.block + (p.dex||0)); setLog(`🛡️ ${cardName}: +${def.block+(p.dex||0)} брони.`); spawnFloat("+"+(def.block+(p.dex||0)), "block", false); }
     if (def.dmg) { const dealt = dealDamageTo(e, computeAttackDamage(def, p), true, true); setLog(`🛡️ ${cardName}: ${dealt} урона + броня`); flashEntity("enemy-card","taking-damage"); spawnFloat(dealt.toString(),"damage",true); }
     if (def.draw) { drawCards(def.draw); setLog(`${cardName}: Взято ${def.draw} карт.`); }
@@ -1074,6 +1124,7 @@ function playCard(cardName, cardIndex) {
     if (def.heal) { p.hp = Math.min(p.maxHp, p.hp+def.heal); setLog(`${cardName}: +${def.heal} HP.`); spawnFloat("+"+def.heal, "heal", false); }
     flashEntity("player-card","healing");
   } else if (def.type === "power") {
+    SFX.power();
     if (def.gainStr) { p.str += def.gainStr; }
     if (def.gainDex) { p.dex += def.gainDex; }
     if (def.ritual) { p.buffs.ritual = (p.buffs.ritual||0)+def.ritual; }
@@ -1097,6 +1148,7 @@ function discardCard(index) {
 
 function endTurn() {
   document.getElementById("btn-end").disabled = true;
+  SFX.endTurn();
   // Orichalcum relic
   if (hasRelic("orichalcum") && G.player.block === 0) applyBlock(G.player, 6);
   // carry energy relic
@@ -1128,10 +1180,12 @@ function enemyTurn() {
   const intent = e.intents[e.intentIndex % e.intents.length];
   e.intentIndex++;
   if (intent.startsWith("attack")) {
+    SFX.enemyAttack();
     let dmg = parseInt(intent.replace("attack","")) + (e.str||0);
     if (e.buffs && e.buffs.ritual) { e.str += e.buffs.ritual; }
     if (p.buffs && p.buffs.weak) dmg = Math.floor(dmg * 0.75);
     const dealt = dealDamageTo(p, dmg, false, false);
+    if (dealt > 0) SFX.playerHurt();
     setLog(`👹 Враг атакует на ${dealt} урона!`);
     flashEntity("player-card","taking-damage");
     spawnFloat(dealt.toString(),"damage",false);
@@ -1147,6 +1201,7 @@ function enemyTurn() {
     e.buffs.ritual = (e.buffs.ritual||0)+1;
     setLog(`👹 Враг проводит ритуал!`);
   } else if (intent.startsWith("poison")) {
+    SFX.poison();
     const pv = parseInt(intent.replace("poison",""));
     applyPoison(p, pv);
     setLog(`👹 Враг отравляет вас (${pv} стаков яда)!`);
@@ -1183,6 +1238,7 @@ function checkCombatEnd() {
 }
 
 function gameOver() {
+  SFX.gameOver();
   document.getElementById("go-title").textContent = "💀 КОНЕЦ ИГРЫ";
   document.getElementById("go-subtitle").textContent = `${G.player.name} пал на ${G.stats.floorReached} этаже`;
   document.getElementById("go-stats").innerHTML = `
@@ -1195,6 +1251,7 @@ function gameOver() {
 }
 
 function gameVictory() {
+  SFX.victory();
   document.getElementById("go-title").textContent = "🏆 ПОБЕДА!";
   document.getElementById("go-subtitle").textContent = `${G.player.name} покорил Шпиль!`;
   document.getElementById("go-stats").innerHTML = `
@@ -1214,6 +1271,7 @@ function showCombatReward() {
   const goldEarned = Math.floor(Math.random()*(e.gold[1]-e.gold[0]+1))+e.gold[0];
   G.player.gold += goldEarned;
   G.stats.goldEarned += goldEarned;
+  SFX.coin();
   setLog(`🎉 Победа! +${goldEarned} монет`);
   // Pick 3 random reward cards
   const charCards = Object.entries(ALL_CARDS).filter(([k,v])=>v.char===G.charKey||v.char==="any");
@@ -1247,6 +1305,7 @@ function pickRelicReward() {
   if (available.length === 0) { closeReward(); return; }
   const relic = available[Math.floor(Math.random()*available.length)];
   G.relics.push(relic.id);
+  SFX.relic();
   setLog(`✨ Реликвия получена: ${relic.icon} ${relic.name}!`);
   closeReward();
 }
@@ -1449,6 +1508,18 @@ function renderBattleUI() {
   document.getElementById("e-hp-text").textContent = `${Math.max(0,e.hp)}/${e.maxHp}`;
   document.getElementById("e-hp-bar").style.width = `${Math.max(0,(e.hp/e.maxHp)*100)}%`;
   renderBuffs("e-buffs", e);
+  // TOP HP BANNER
+  document.getElementById("top-p-avatar").textContent = p.avatar;
+  document.getElementById("top-p-name").textContent = p.name;
+  document.getElementById("top-p-num").textContent = Math.max(0,p.hp)+"/"+p.maxHp;
+  document.getElementById("top-p-fill").style.width = Math.max(0,(p.hp/p.maxHp)*100)+"%";
+  document.getElementById("top-e-avatar").textContent = e.avatar;
+  document.getElementById("top-e-name").textContent = e.name;
+  document.getElementById("top-e-num").textContent = Math.max(0,e.hp)+"/"+e.maxHp;
+  document.getElementById("top-e-fill").style.width = Math.max(0,(e.hp/e.maxHp)*100)+"%";
+  // Color HP bar green→yellow→red for player
+  const pPct = p.hp/p.maxHp;
+  document.getElementById("top-p-fill").style.background = pPct > 0.5 ? "linear-gradient(90deg,#22c55e,#4ade80)" : pPct > 0.25 ? "linear-gradient(90deg,#d97706,#fbbf24)" : "linear-gradient(90deg,#c94040,#e85555)";
   // Intent
   const nextIntent = e.intents[e.intentIndex % e.intents.length];
   let intentStr = "???";
@@ -1572,6 +1643,115 @@ function setLog(text) {
 }
 
 // ============================================================
+//  SOUND ENGINE (Web Audio API — no files needed)
+// ============================================================
+const SFX = (() => {
+  let ctx = null;
+  function getCtx() {
+    if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if (ctx.state === "suspended") ctx.resume();
+    return ctx;
+  }
+  function play(fn) { try { fn(getCtx()); } catch(e) {} }
+
+  function osc(ac, type, freq, vol, start, dur, freqEnd) {
+    const o = ac.createOscillator();
+    const g = ac.createGain();
+    o.connect(g); g.connect(ac.destination);
+    o.type = type; o.frequency.setValueAtTime(freq, start);
+    if (freqEnd) o.frequency.exponentialRampToValueAtTime(freqEnd, start+dur);
+    g.gain.setValueAtTime(vol, start);
+    g.gain.exponentialRampToValueAtTime(0.001, start+dur);
+    o.start(start); o.stop(start+dur+0.01);
+  }
+  function noise(ac, vol, start, dur) {
+    const buf = ac.createBuffer(1, ac.sampleRate*dur, ac.sampleRate);
+    const d = buf.getChannelData(0);
+    for(let i=0;i<d.length;i++) d[i] = Math.random()*2-1;
+    const src = ac.createBufferSource();
+    const g = ac.createGain();
+    const f = ac.createBiquadFilter();
+    src.buffer = buf; src.connect(f); f.connect(g); g.connect(ac.destination);
+    f.type = "bandpass"; f.frequency.value = 600; f.Q.value = 0.5;
+    g.gain.setValueAtTime(vol, start);
+    g.gain.exponentialRampToValueAtTime(0.001, start+dur);
+    src.start(start); src.stop(start+dur+0.01);
+  }
+
+  return {
+    attack() { play(ac => {
+      const t = ac.currentTime;
+      noise(ac, 0.3, t, 0.08);
+      osc(ac,"sawtooth",220,0.15,t,0.12,80);
+      osc(ac,"square",330,0.08,t+0.03,0.1,200);
+    }); },
+    bigAttack() { play(ac => {
+      const t = ac.currentTime;
+      noise(ac, 0.5, t, 0.15);
+      osc(ac,"sawtooth",180,0.2,t,0.2,60);
+      osc(ac,"square",440,0.1,t,0.15,120);
+      osc(ac,"sine",80,0.25,t,0.25,30);
+    }); },
+    block() { play(ac => {
+      const t = ac.currentTime;
+      osc(ac,"sine",440,0.12,t,0.08,600);
+      osc(ac,"sine",660,0.08,t+0.03,0.1,880);
+    }); },
+    cardPlay() { play(ac => {
+      const t = ac.currentTime;
+      osc(ac,"sine",520,0.08,t,0.07,660);
+    }); },
+    power() { play(ac => {
+      const t = ac.currentTime;
+      osc(ac,"sine",330,0.1,t,0.05);
+      osc(ac,"sine",495,0.1,t+0.05,0.05);
+      osc(ac,"sine",660,0.15,t+0.1,0.15,880);
+    }); },
+    enemyAttack() { play(ac => {
+      const t = ac.currentTime;
+      noise(ac, 0.25, t, 0.1);
+      osc(ac,"sawtooth",160,0.18,t,0.15,60);
+    }); },
+    playerHurt() { play(ac => {
+      const t = ac.currentTime;
+      osc(ac,"square",200,0.15,t,0.1,80);
+      noise(ac,0.2,t+0.05,0.12);
+    }); },
+    poison() { play(ac => {
+      const t = ac.currentTime;
+      osc(ac,"sine",180,0.08,t,0.1,220);
+      osc(ac,"sine",360,0.06,t+0.05,0.12,280);
+    }); },
+    victory() { play(ac => {
+      const t = ac.currentTime;
+      [523,659,784,1047].forEach((f,i) => osc(ac,"sine",f,0.15,t+i*0.12,0.3));
+    }); },
+    gameOver() { play(ac => {
+      const t = ac.currentTime;
+      [400,300,200,100].forEach((f,i) => osc(ac,"sawtooth",f,0.15,t+i*0.18,0.25));
+    }); },
+    cardDeal() { play(ac => {
+      const t = ac.currentTime;
+      osc(ac,"sine",800,0.05,t,0.04,600);
+    }); },
+    endTurn() { play(ac => {
+      const t = ac.currentTime;
+      osc(ac,"sine",440,0.08,t,0.06);
+      osc(ac,"sine",330,0.08,t+0.07,0.08);
+    }); },
+    coin() { play(ac => {
+      const t = ac.currentTime;
+      osc(ac,"sine",880,0.1,t,0.06,1100);
+      osc(ac,"sine",1100,0.08,t+0.07,0.08,1320);
+    }); },
+    relic() { play(ac => {
+      const t = ac.currentTime;
+      [660,880,1100,1320].forEach((f,i) => osc(ac,"sine",f,0.12,t+i*0.08,0.2));
+    }); },
+  };
+})();
+
+// ============================================================
 //  INIT
 // ============================================================
 spawnParticles();
@@ -1582,6 +1762,8 @@ if (window.Telegram && window.Telegram.WebApp) {
   const tgTheme = window.Telegram.WebApp.colorScheme;
   document.documentElement.style.setProperty("--tg-color-scheme", tgTheme);
 }
+// Unlock audio on first interaction
+document.addEventListener("click", () => { try { new (window.AudioContext||window.webkitAudioContext)(); } catch(e){} }, { once:true });
 </script>
 </body>
 </html>
