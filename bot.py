@@ -3,7 +3,7 @@ import asyncio
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, WebAppInfo
 from telegram.ext import Application, CommandHandler, ContextTypes
 
-TOKEN = os.environ.get("BOT_TOKEN")
+TOKEN = os.environ.get("8738502248:AAHlAi-h59fWgjxthMdymhTRtTw0xoHfLPM")
 WEB_APP_URL = "https://riderdead.github.io/slr_game/"
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
