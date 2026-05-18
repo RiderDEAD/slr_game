@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slay the Spire: TMA Edition</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #121214;
+            color: #e2e2e6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            user-select: none;
+            overflow: hidden;
+        }
+        #menu, #game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            position: absolute;
+            transition: all 0.5s ease;
+        }
+        .hidden { display: none !important; opacity: 0; }
+        h1 { color: #ff4757; text-shadow: 0 0 10px rgba(255,71,87,0.5); font-size: 2.5rem; margin-bottom: 20px; }
+        .btn {
+            background: #2f3542;
+            color: white;
+            border: 2px solid #57606f;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.2s;
+        }
+        .btn:hover { background: #ff4757; border-color: #ff6b81; transform: scale(1.05); }
+        
+        /* Выбор персонажа */
+        .char-select { display: flex; gap: 20px; margin-bottom: 20px; }
+        .char-card {
+            background: #1e1e24;
+            border: 2px solid #3f3f4e;
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            width: 120px;
+            transition: 0.3s;
+        }
+        .char-card.selected { border-color: #ff4757; background: #2f2528; }
+
+        /* Игровой интерфейс */
+        .battlefield { display: flex; justify-content: space-around; width: 90%; max-width: 800px; margin-bottom: 30px; }
+        .entity { background: #1e1e24; padding: 20px; border-radius: 12px; width: 40%; text-align: center; border: 1px solid #3f3f4e; position: relative; }
+        .hp-bar { background: #ff4757; height: 12px; border-radius: 6px; width: 100%; margin-top: 8px; transition: width 0.3s; }
+        .block-badge { background: #1e90ff; color: white; padding: 2px 8px; border-radius: 4px; font-weight: bold; position: absolute; top: 10px; right: 10px; }
+
+        /* Реликвии */
+        .relics-container { display: flex; gap: 10px; margin-bottom: 15px; background: #1a1a1f; padding: 10px; border-radius: 8px; width: 80%; max-width: 800px; }
+        .relic { background: #ffa502; color: #121214; padding: 4px 10px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; animation: pulse 2s infinite; }
+
+        /* Карты в руке */
+        .hand { display: flex; gap: 10px; justify-content: center; width: 100%; position: absolute; bottom: 30px; }
+        .card {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            border: 2px solid #7f8c8d;
+            width: 100px;
+            height: 140px;
+            border-radius: 10px;
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-20px) scale(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.5); border-color: #fff; }
+        .card.attack { background: linear-gradient(135deg, #c0392b, #962d22); }
+        .card.skill { background: linear-gradient(135deg, #2980b9, #20638f); }
+        .card.talent { background: linear-gradient(135deg, #d35400, #a04000); }
+
+        .log { background: rgba(0,0,0,0.4); padding: 10px; border-radius: 6px; width: 80%; max-width: 800px; text-align: center; height: 40px; overflow: hidden; }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,165,2, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255,165,2, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,165,2, 0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="menu">
+        <h1>SLAY THE SPIRE II</h1>
+        <div style="font-size: 1.1rem; margin-bottom: 10px;">Выбери своего героя:</div>
+        <div class="char-select">
+            <div class="char-card selected" id="char-kram" onclick="selectChar('KRAM', 80)">
+                <h3>KRAM</h3>
+                <p>HP: 80<br>Силач</p>
+            </div>
+            <div class="char-card" id="char-hana" onclick="selectChar('HANA', 65)">
+                <h3>HANA</h3>
+                <p>HP: 65<br>Ловкач</p>
+            </div>
+        </div>
+        <button class="btn" onclick="startGame()">ИГРАТЬ</button>
+        <button class="btn" onclick="alert('Авторы:\nТвоё Имя\nГруппа: ХХХ-ХХ\nУниверситет: Твой ВУЗ')">АВТОРЫ</button>
+    </div>
+
+    <div id="game" class="hidden">
+        <div class="relics-container">
+            <span style="color: #aaa; font-size: 0.9rem; align-self: center;">Реликвии:</span>
+            <div class="relic" title="Каждая атака наносит на 2 урона больше">Перо Грифона (+2 урона)</div>
+        </div>
+
+        <div class="battlefield">
+            <div class="entity">
+                <div class="block-badge" id="p-block">0</div>
+                <h2 id="p-name">Игрок</h2>
+                <div>HP: <span id="p-hp-text">80/80</span></div>
+                <div style="background: #222; border-radius: 6px;"><div class="hp-bar" id="p-hp-bar"></div></div>
+            </div>
+            <div class="entity">
+                <div class="block-badge" id="e-block">0</div>
+                <h2>Босс Немезида</h2>
+                <div>HP: <span id="e-hp-text">60/60</span></div>
+                <div style="background: #222; border-radius: 6px;"><div class="hp-bar" id="e-hp-bar" style="width: 100%;"></div></div>
+            </div>
+        </div>
+
+        <div class="log" id="combat-log">Бой начинается! Ваш ход.</div>
+
+        <div class="hand" id="hand">
+            </div>
+    </div>
+
+    <script>
+        // Данные игры
+        let player = { name: "KRAM", hp: 80, maxHp: 80, block: 0, relicBonus: 2 };
+        let enemy = { name: "Немезида", hp: 60, maxHp: 60, block: 0 };
+        
+        function selectChar(name, hp) {
+            player.name = name;
+            player.hp = hp;
+            player.maxHp = hp;
+            document.querySelectorAll('.char-card').forEach(c => c.classList.remove('selected'));
+            if(name === 'KRAM') document.getElementById('char-kram').classList.add('selected');
+            else document.getElementById('char-hana').classList.add('selected');
+        }
+
+        function startGame() {
+            document.getElementById('menu').classList.add('hidden');
+            document.getElementById('game').classList.remove('hidden');
+            updateUI();
+            renderHand();
+        }
+
+        function updateUI() {
+            document.getElementById('p-name').innerText = player.name;
+            document.getElementById('p-hp-text').innerText = `${player.hp}/${player.maxHp}`;
+            document.getElementById('p-hp-bar').style.width = `${(player.hp / player.maxHp) * 100}%`;
+            document.getElementById('p-block').innerText = player.block;
+
+            document.getElementById('e-hp-text').innerText = `${enemy.hp}/${enemy.maxHp}`;
+            document.getElementById('e-hp-bar').style.width = `${(enemy.hp / enemy.maxHp) * 100}%`;
+            document.getElementById('e-block').innerText = enemy.block;
+        }
+
+        const deck = [
+            { name: "Удар", type: "attack", desc: "Урон: 6", action: () => attackEnemy(6) },
+            { name: "Защита", type: "skill", desc: "Блок: 5", action: () => addBlock(5) },
+            { name: "Огненный смерч", type: "talent", desc: "Постоянно +3 к картам Атаки", action: () => upgradeDeck() }
+        ];
+
+        function renderHand() {
+            const handDiv = document.getElementById('hand');
+            handDiv.innerHTML = '';
+            // Вытягиваем случайные 3 карты
+            for(let i=0; i<3; i++) {
+                let randomCard = deck[Math.floor(Math.random() * deck.length)];
+                let cardEl = document.createElement('div');
+                cardEl.className = `card ${randomCard.type}`;
+                cardEl.innerHTML = `<b>${randomCard.name}</b><span style='font-size:0.75rem'>${randomCard.desc}</span>`;
+                cardEl.onclick = () => {
+                    randomCard.action();
+                    cardEl.remove();
+                    if(enemy.hp > 0) setTimeout(enemyTurn, 800);
+                };
+                handDiv.appendChild(cardEl);
+            }
+        }
+
+        function attackEnemy(dmg) {
+            let totalDmg = dmg + player.relicBonus; // Учитываем реликвию!
+            if(enemy.block > 0) {
+                if(totalDmg <= enemy.block) { enemy.block -= totalDmg; totalDmg = 0; }
+                else { totalDmg -= enemy.block; enemy.block = 0; }
+            }
+            enemy.hp = Math.max(0, enemy.hp - totalDmg);
+            document.getElementById('combat-log').innerText = `⚔️ Вы нанесли ${dmg} (+2 от Реликвии) урона врагу!`;
+            updateUI();
+            checkWin();
+        }
+
+        function addBlock(blk) {
+            player.block += blk;
+            document.getElementById('combat-log').innerText = `🛡️ Вы получили ${blk} брони!`;
+            updateUI();
+        }
+
+        function upgradeDeck() {
+            deck[0].desc = "Урон: 9";
+            let oldAction = deck[0].action;
+            deck[0].action = () => attackEnemy(9);
+            document.getElementById('combat-log').innerText = `⚡ Талант активирован! Урон 'Удара' вырос до 9!`;
+        }
+
+        function enemyTurn() {
+            if(enemy.hp <= 0) return;
+            let dmg = Math.floor(Math.random() * 6) + 6; // 6-12 урона
+            if(player.block > 0) {
+                if(dmg <= player.block) { player.block -= dmg; dmg = 0; }
+                else { dmg -= player.block; player.block = 0; }
+            }
+            player.hp = Math.max(0, player.hp - dmg);
+            document.getElementById('combat-log').innerText = `👹 Немезида бьет вас на ${dmg} урона!`;
+            updateUI();
+            if(player.hp <= 0) {
+                alert("Вы погибли! Игра перезапустится.");
+                location.reload();
+            }
+            if(document.getElementById('hand').children.length === 0) {
+                renderHand(); // Добор карт, если рука пуста
+            }
+        }
+
+        function checkWin() {
+            if(enemy.hp <= 0) {
+                alert("🎉 ПОБЕДА! Вы одолели Немезиду и защитили проект!");
+                location.reload();
+            }
+        }
+    </script>
+</body>
+</html>
